@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        :root{
+            --color_btn_verMais: blue;
+        }
+
+        .verMais{
+            all: unset;
+            cursor: pointer;
+            color: var(--color_btn_verMais);
+            text-decoration: none;
+            padding: 5px;
+            border: 2px solid var(--color_btn_verMais);
+            border-radius: 15px;
+        }
+        a .remover{
+            --color_btn_verMais: red;
+        }
+
+
+        .verMais:hover{
+            filter:brightness(50%);
+        }
+    </style>
+
+</head>
+<body style="margin: 20px;">
+    <div style="text-align: center;">
+        <h1 style="font-size: 50px;">Nome de usuarios</h1>
+        <ul style="text-align: left; font-size: 35px;">
+            {% for usuario in usuarios %}
+                <li style="margin: 15px;">
+                    <span style="display: flex; align-items: center; justify-content: space-between;">
+                        <strong> {{usuario}} </strong>
+                        <form class="" action="" method="post">
+                            <button type="submit" style="color: red; border-color: red;" class="verMais">remover</button>
+                            <a class="verMais" href="usuarios/{{usuario}}">Ver perfil</a>
+                            <input type="hidden" name="user_name" value="{{usuario}}">
+                        </form>
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
